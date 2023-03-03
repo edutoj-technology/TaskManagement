@@ -1,34 +1,28 @@
-using Microsoft.AspNetCore.Mvc;
-using TaskManagement.Repository;
-
-namespace TaskManagement.Controllers;
-
-[ApiController]
-[Route("[controller]")]
-public class TasksController : ControllerBase
+namespace TaskManagement.Controllers
 {
-    private static readonly string[] Summaries = new[]
+    using Microsoft.AspNetCore.Mvc;
+    using Microsoft.Extensions.Logging;
+    using System.Collections.Generic;
+    using TaskManagement.Models;
+    using TaskManagement.Repository;
+
+    [ApiController]
+    [Route("[controller]")]
+    public class TasksController : ControllerBase
     {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+        private readonly ILogger<TasksController> _logger;
+        private readonly ITaskRepository _taskRepository;
 
-    private readonly ILogger<TasksController> _logger;
-
-    public TasksController(ILogger<TasksController> logger)
-    {
-        _logger = logger;  
-
-    }
-
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
-    {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
+        public TasksController(ILogger<TasksController> logger, ITaskRepository taskRepository)
         {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+            _logger = logger;
+            _taskRepository = taskRepository;
+        }
+
+        [HttpGet(Name = "GetTasks")]
+        public IEnumerable<Task> Get()
+        {
+            return this._taskRepository.GetAllTask();
+        }
     }
 }
