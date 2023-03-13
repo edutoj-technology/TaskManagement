@@ -4,6 +4,7 @@ namespace TaskManagement
     using Microsoft.Extensions.DependencyInjection;
     using Microsoft.Extensions.Hosting;
     using TaskManagement.Repository;
+    using TaskManagement.Services;
 
     public class Program
     {
@@ -41,7 +42,8 @@ namespace TaskManagement
             services.AddSwaggerGen();
 
             // Register dependancies
-            services.AddTransient<ITaskRepository, TaskRepository>();
+            services.AddTransient<ITaskRepository, JsonTaskRepository>();
+            services.AddTransient<IJsonFileService, JsonFileService>();
 
         }
     }

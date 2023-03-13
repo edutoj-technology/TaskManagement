@@ -2,6 +2,7 @@ namespace TaskManagement.Repository
 {
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using TaskManagement.Models;
     public class TaskRepository : ITaskRepository
     {
@@ -46,7 +47,8 @@ namespace TaskManagement.Repository
 
         public Task AddNewTask(Task task)
         {
-            throw new NotImplementedException();
+            taskList.Add(task);
+            return task;
         }
 
         public Task DeleteTask(Guid taskId)
@@ -64,9 +66,16 @@ namespace TaskManagement.Repository
             throw new NotImplementedException();
         }
 
-        public Task UpdateTask(Task task)
+        public Task UpdateTask(Task task, Guid taskId)
         {
-            throw new NotImplementedException();
+            var taskObject = taskList.Where(t => t.TaskId == taskId).FirstOrDefault();
+            if (taskObject != null)
+            {
+                taskObject.TaskId = taskId;
+                taskObject.Category = task.Category;
+            }
+
+            return taskObject;
         }
     }
 }

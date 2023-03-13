@@ -2,6 +2,7 @@ namespace TaskManagement.Controllers
 {
     using Microsoft.AspNetCore.Mvc;
     using Microsoft.Extensions.Logging;
+    using System;
     using System.Collections.Generic;
     using TaskManagement.Models;
     using TaskManagement.Repository;
@@ -23,6 +24,19 @@ namespace TaskManagement.Controllers
         public IEnumerable<Task> Get()
         {
             return this._taskRepository.GetAllTask();
+        }
+
+        [HttpPost]      
+        public Task Post([FromBody] Task task)
+        {
+            return this._taskRepository.AddNewTask(task);
+        }
+
+        [HttpPut]
+        [Route("{taskId}")]
+        public Task Put([FromBody]Task task, [FromRoute] Guid taskId)
+        {
+            return this._taskRepository.UpdateTask(task, taskId);
         }
     }
 }

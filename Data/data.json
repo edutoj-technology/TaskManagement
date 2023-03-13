@@ -1,0 +1,38 @@
+[
+  {
+    "TaskId": "01fb71e6-4e28-46b8-b926-022a60fc4794",
+    "TaskName": "Task1",
+    "Category": {
+      "TaskCategoryId": "01fb71e6-4e28-46b8-b926-022a60fc4794",
+      "CategoryName": "Development",
+      "CreatedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ModifiedBy": null,
+      "CreateDate": "2023-03-11T04:52:04.769Z",
+      "ModifyDate": null,
+      "IsDeleted": false
+    },
+    "CreatedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "ModifiedBy": null,
+    "CreateDate": "2023-03-11T04:52:04.769Z",
+    "ModifyDate": null,
+    "IsDeleted": false
+  },
+  {
+    "TaskId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "TaskName": "string",
+    "Category": {
+      "TaskCategoryId": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CategoryName": "string",
+      "CreatedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "ModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+      "CreateDate": "2023-03-13T05:10:50.907Z",
+      "ModifyDate": "2023-03-13T05:10:50.907Z",
+      "IsDeleted": true
+    },
+    "CreatedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "ModifiedBy": "3fa85f64-5717-4562-b3fc-2c963f66afa6",
+    "CreateDate": "2023-03-13T05:10:50.907Z",
+    "ModifyDate": "2023-03-13T05:10:50.907Z",
+    "IsDeleted": true
+  }
+]

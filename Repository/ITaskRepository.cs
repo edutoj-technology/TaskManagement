@@ -8,7 +8,7 @@ namespace TaskManagement.Repository
         public IEnumerable<Task> GetAllTask();
         public Task GetTaskById(Guid taskId);
         public Task AddNewTask(Task task);
-        public Task UpdateTask(Task task);
+        public Task UpdateTask(Task task, Guid taskId);
         public Task DeleteTask(Guid taskId);
     }
 }
